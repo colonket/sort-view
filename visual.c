@@ -29,10 +29,9 @@ int main()
 void legend(int arr[], int len){
 	char buffer [50];
 	for(int i=0; i<len; i++){
-		sprintf(buffer,"%d ", arr[i]);
+		printf("%d ", arr[i]);
 	}
-	sprintf(buffer,"\n");
-	printf("%s",buffer);
+	printf("\n");
 }
 
 void disVis(int arr[], int len){//display visual
@@ -47,23 +46,22 @@ void disVis(int arr[], int len){//display visual
 		{
 			if(arr[j] < i){
 				for(int k=0; k<digits(arr[j]); k++){
-					sprintf(buffer," ");
+					printf(" ");
 				}
-				sprintf(buffer," ");
+				printf(" ");
 			}
 			else{
 				for(int k=0; k<digits(arr[j]); k++){
-					sprintf(buffer,"#");
+					printf("#");
 				}
-				sprintf(buffer," ");
+				printf(" ");
 			}
 		}
-		sprintf(buffer,"\r\n");
+		printf("\n");
 	}
-	printf("%s",buffer);
 	legend(arr, len);
-	fflush(stdout);
-	sleep(1);
+	//fflush(stdout);
+	//sleep(1);
 }
 
 int max(int arr[], int len){
