@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <time.h>
+#define MAX_DATA_SIZE 20
 unsigned int sleep(unsigned int seconds);
 
 void swap(int *x, int *y);
@@ -14,13 +16,17 @@ int digits(int val);
 ////////////////////////////////////////////////
 int main()
 {
-	int dataSet[] = {9,13,2,7,11,25}; //Data Set
-	int len = sizeof(dataSet)/sizeof(int); //Get length of Data Set
+	int dataSet[MAX_DATA_SIZE] = {};
+	srand(time(0));
+	for(int i = 0; i<MAX_DATA_SIZE; i++){
+		dataSet[i] = rand();
+	}
+	//int MAX_DATA_SIZE = sizeof(dataSet)/sizeof(int); //Get MAX_DATA_SIZEgth of Data Set
 	
-	disVis(dataSet, len); //Display bar graph
+	disVis(dataSet, MAX_DATA_SIZE); //Display bar graph
 
-	QuickSort(dataSet,0,len);
-	disVis(dataSet, len);
+	QuickSort(dataSet,0,MAX_DATA_SIZE);
+	disVis(dataSet, MAX_DATA_SIZE);
 	return 0;
 	//bloop bloop
 }

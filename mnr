@@ -1,6 +1,0 @@
-#!/bin/sh -v
-
-#Makes the program and runs it.
-#m(ake) (a)n(d) r(un)
-
-make visual && ./visual
