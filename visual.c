@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <time.h>
-#define MAX_DATA_SIZE 20
+#define MAX_DATA_SIZE 4
 unsigned int sleep(unsigned int seconds);
 
 void swap(int *x, int *y);
@@ -25,15 +25,15 @@ int main()
 	
 	disVis(dataSet, MAX_DATA_SIZE); //Display bar graph
 
-	QuickSort(dataSet,0,MAX_DATA_SIZE);
-	disVis(dataSet, MAX_DATA_SIZE);
+	//QuickSort(dataSet,0,MAX_DATA_SIZE);
+	//disVis(dataSet, MAX_DATA_SIZE);
 	return 0;
 	//bloop bloop
 }
 ////////////////////////////////////////////////
 
 void legend(int arr[], int len){
-	char buffer [50];
+	char buffer [MAX_DATA_SIZE];
 	for(int i=0; i<len; i++){
 		printf("%d ", arr[i]);
 	}
@@ -41,7 +41,7 @@ void legend(int arr[], int len){
 }
 
 void disVis(int arr[], int len){//display visual
-	char buffer [50];
+	char buffer [MAX_DATA_SIZE];
 	int hMax = max(arr, len);//height
 	int hMin = 0;
 	int wMax = len;//width
