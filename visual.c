@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <time.h>
-#define MAX_DATA_SIZE 4
 unsigned int sleep(unsigned int seconds);
 
 void swap(int *x, int *y);
@@ -13,35 +11,32 @@ void legend(int arr[], int len);
 int max(int arr[], int len);
 int digits(int val);
 
-////////////////////////////////////////////////
+
 int main()
 {
-	int dataSet[MAX_DATA_SIZE] = {};
-	srand(time(0));
-	for(int i = 0; i<MAX_DATA_SIZE; i++){
-		dataSet[i] = rand();
-	}
-	//int MAX_DATA_SIZE = sizeof(dataSet)/sizeof(int); //Get MAX_DATA_SIZEgth of Data Set
+	int dataSet[] = {9,13,2,7,11}; //Data Set
+	int len = sizeof(dataSet)/sizeof(int); //Get length of Data Set
 	
-	disVis(dataSet, MAX_DATA_SIZE); //Display bar graph
+	disVis(dataSet, len); //Display bar graph
 
-	//QuickSort(dataSet,0,MAX_DATA_SIZE);
-	//disVis(dataSet, MAX_DATA_SIZE);
+	QuickSort(dataSet,0,len);
+	disVis(dataSet, len);
 	return 0;
 	//bloop bloop
 }
-////////////////////////////////////////////////
+
 
 void legend(int arr[], int len){
-	char buffer [MAX_DATA_SIZE];
+	//char buffer [50];
 	for(int i=0; i<len; i++){
 		printf("%d ", arr[i]);
 	}
 	printf("\n");
+	//printf("%s",buffer);
 }
 
 void disVis(int arr[], int len){//display visual
-	char buffer [MAX_DATA_SIZE];
+	char buffer [50];
 	int hMax = max(arr, len);//height
 	int hMin = 0;
 	int wMax = len;//width
@@ -63,11 +58,12 @@ void disVis(int arr[], int len){//display visual
 				printf(" ");
 			}
 		}
-		printf("\n");
+		printf("\r\n");
 	}
+	printf("%s",buffer);
 	legend(arr, len);
-	//fflush(stdout);
-	//sleep(1);
+	fflush(stdout);
+	sleep(1);
 }
 
 int max(int arr[], int len){
@@ -121,6 +117,5 @@ void QuickSort(int A[], int start, int end)
 		int pIndex = Partition(A,start,end);
 		QuickSort(A,start,pIndex-1);
 		QuickSort(A,pIndex+1,end);
-		//disVis(A, end);
 	}
 }
